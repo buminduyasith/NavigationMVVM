@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NavigationMVVM.Views.MainWindow"
+        xmlns:views="using:NavigationMVVM.Views.UserControls"
         Icon="/Assets/avalonia-logo.ico"
+		x:DataType="vm:MainWindowViewModel"
         Title="NavigationMVVM">
 
     <Design.DataContext>
@@ -14,6 +16,15 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<ContentControl  Content="{Binding CurrentViewModel}">
+
+		<ContentControl.ContentTemplate>
+			<DataTemplate>
+				<views:LoginView />
+			</DataTemplate>
+		</ContentControl.ContentTemplate>
+		
+	</ContentControl>
+	
 
 </Window>

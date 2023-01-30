@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using NavigationMVVM.ViewModels;
+using Splat;
 
 namespace NavigationMVVM.Views
 {
@@ -6,6 +8,7 @@ namespace NavigationMVVM.Views
     {
         public MainWindow()
         {
+            DataContext = Locator.Current.GetService<MainWindowViewModel>();
             InitializeComponent();
         }
     }
